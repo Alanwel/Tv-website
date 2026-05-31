@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shop Electronics — Isaac Electronics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">⚡ Isaac <span>Electronics</span></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Repairs</a></li>
+                    <li><a href="shop.html" class="active">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-banner">
+        <h1>🛒 Our Shop</h1>
+        <p>Quality electronics at great prices — order directly via WhatsApp</p>
+    </section>
+
+    <!-- Shop Filters -->
+    <section class="section">
+        <div class="shop-filters">
+            <button class="filter-btn active" onclick="filterProducts('all')">All Products</button>
+            <button class="filter-btn" onclick="filterProducts('tv')">TVs</button>
+            <button class="filter-btn" onclick="filterProducts('audio')">Audio</button>
+            <button class="filter-btn" onclick="filterProducts('accessories')">Accessories</button>
+            <button class="filter-btn" onclick="filterProducts('appliances')">Appliances</button>
+        </div>
+    </section>
+
+    <!-- Products Grid -->
+    <section class="section">
+        <div class="shop-grid" id="shopGrid">
+            <!-- TV -->
+            <div class="product-card" data-category="tv">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1593359677879-a4bb92f829d1?w=400&h=300&fit=crop" alt="Samsung Smart TV 43 inch" loading="lazy">
+                    <span class="product-tag">Popular</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">TV</span>
+                    <h3>Samsung Smart TV 43"</h3>
+                    <p class="product-desc">Full HD, WiFi, Screen Mirroring</p>
+                    <p class="product-price">UGX 1,200,000</p>
+                    <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics%2C%20I%20want%20to%20order%3A%20Samsung%20Smart%20TV%2043%22%20-%20UGX%201%2C200%2C000" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="tv">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1567690187548-f07b1d7bf5a9?w=400&h=300&fit=crop" alt="LG Smart TV 55 inch" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">TV</span>
+                    <h3>LG Smart TV 55"</h3>
+                    <p class="product-desc">4K UHD, AI ThinQ, WebOS</p>
+                    <p class="product-price">UGX 2,400,000</p>
+                    <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics%2C%20I%20want%20to%20order%3A%20LG%20Smart%20TV%2055%22%20-%20UGX%202%2C400%2C000" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="tv">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1461151304267-38535e780c79?w=400&h=300&fit=crop" alt="Hisense TV 32 inch" loading="lazy">
+                    <span class="product-tag sale">Sale</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">TV</span>
+                    <h3>Hisense TV 32"</h3>
+                    <p class="product-desc">HD Ready, USB, HDMI</p>
+                    <p class="product-price"><span class="old-price">UGX 750,000</span> UGX 620,000</p>
+                    <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics%2C%20I%20want%20to%20order%3A%20Hisense%20TV%2032%22%20-%20UGX%20620%2C000" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Audio -->
+            <div class="product-card" data-category="audio">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1608043152269-423dbba4e7e1?w=400&h=300&fit=crop" alt="JBL Bluetooth Speaker" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Audio</span>
+                    <h3>JBL Bluetooth Woofer</h3>
+                    <p class="product-desc">Deep Bass, 12hr Battery, IPX7</p>
+                    <p class="product-price">UGX 350,000</p>
+                    <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics%2C%20I%20want%20to%20order%3A%20JBL%20Bluetooth%20Woofer%20-%20UGX%20350%2C000" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="audio">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1598653222000-6b7b7a552625?w=400&h=300&fit=crop" alt="Wireless Microphone Set" loading="lazy">
+                    <span class="product-tag">New</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Audio</span>
+                    <h3>Wireless Mic Set (2-Pack)</h3>
+                    <p class="product-desc">UHF, 50m Range, Rechargeable</p>
+                    <p class="product-price">UGX 180,000</p>
+                    <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics%2C%20I%20want%20to%20order%3A%20Wireless%20Mic%20Set%20-%20UGX%20180%2C000" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="audio">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1545127398-14699f92334b?w=400&h=300&fit=crop" alt="Home Theater System" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Audio</span>
+                    <h3>Sony Home Theater 5.1</h3>
+                    <p class="product-desc">1000W, Bluetooth, 4K Pass-through</p>
+                    <p class="product-price">UGX 2,500,000</p>
+                    <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics%2C%20I%20want%20to%20order%3A%20Sony%20Home%20Theater%205.1%20-%20UGX%202%2C500%2C000" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Accessories -->
+            <div class="product-card" data-category="accessories">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=400&h=300&fit=crop" alt="HDMI Cables" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Accessories</span>
+                    <h3>HDMI Cables (Pack of 3)</h3>
+                    <p class="product-desc">4K, 2m each, Gold-plated</p>
+                    <p class="product-price">UGX 45,000</p>
+                    <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics%2C%20I%20want%20to%20order%3A%20HDMI%20Cables%20Pack%20-%20UGX%2045%2C000" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accessories">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1623944889288-cd147dbb5172?w=400&h=300&fit=crop" alt="TV Mount Bracket" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Accessories</span>
+                    <h3>TV Wall Mount Bracket</h3>
+                    <p class="product-desc">32-65 inch, Swivel, Heavy Duty</p>
+                    <p class="product-price">UGX 95,000</p>
+                    <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics%2C%20I%20want%20to%20order%3A%20TV%20Wall%20Mount%20-%20UGX%2095%2C000" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="accessories">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1612815154858-60aa4c59eaa6?w=400&h=300&fit=crop" alt="Universal Remote" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Accessories</span>
+                    <h3>Universal Remote Control</h3>
+                    <p class="product-desc">Works with 5000+ TV models</p>
+                    <p class="product-price">UGX 35,000</p>
+                    <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics%2C%20I%20want%20to%20order%3A%20Universal%20Remote%20-%20UGX%2035%2C000" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Appliances -->
+            <div class="product-card" data-category="appliances">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1619119069152-a2b331eb392a?w=400&h=300&fit=crop" alt="Microwave Oven" loading="lazy">
+                    <span class="product-tag">Best Seller</span>
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Appliances</span>
+                    <h3>Samsung Microwave 32L</h3>
+                    <p class="product-desc">Grill, Auto Cook, Defrost</p>
+                    <p class="product-price">UGX 580,000</p>
+                    <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics%2C%20I%20want%20to%20order%3A%20Samsung%20Microwave%2032L%20-%20UGX%20580%2C000" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
+                </div>
+            </div>
+
+            <div class="product-card" data-category="appliances">
+                <div class="product-img-container">
+                    <img src="https://images.unsplash.com/photo-1584269600464-37b1b58a9fe7?w=400&h=300&fit=crop" alt="Air Fryer" loading="lazy">
+                </div>
+                <div class="product-info">
+                    <span class="product-category">Appliances</span>
+                    <h3>Philips Air Fryer 4.2L</h3>
+                    <p class="product-desc">Digital, Rapid Air Technology</p>
+                    <p class="product-price">UGX 420,000</p>
+                    <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics%2C%20I%20want%20to%20order%3A%20Philips%20Air%20Fryer%20-%20UGX%20420%2C000" target="_blank" class="btn-order"><i class="fab fa-whatsapp"></i> Order via WhatsApp</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Shop CTA -->
+    <section class="cta">
+        <h2>Don't See What You Need?</h2>
+        <p>Contact us — we can source almost any electronic item for you</p>
+        <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics%2C%20I%20am%20looking%20for%20a%20specific%20item" target="_blank" class="btn-whatsapp-hero">
+            <i class="fab fa-whatsapp"></i> Inquire on WhatsApp
+        </a>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h3>⚡ Isaac Electronics</h3>
+                <p>Quality electronics for sale in Uganda.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Repairs</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p><i class="fas fa-phone"></i> +256 755 432 091</p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/256755432091" target="_blank">WhatsApp</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Isaac Electronics.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics" target="_blank" class="floating-whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>

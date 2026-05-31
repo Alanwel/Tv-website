@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Repair Services — Isaac Electronics</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+<body>
+
+    <header>
+        <div class="header-inner">
+            <a href="index.html" class="logo">⚡ Isaac <span>Electronics</span></a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            <nav id="navMenu">
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html" class="active">Repairs</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Page Banner -->
+    <section class="page-banner">
+        <h1>🛠️ Request a Repair</h1>
+        <p>Select your device, choose the brand, and send us the details via WhatsApp</p>
+    </section>
+
+    <!-- All Services -->
+    <section class="section">
+        <h2 class="section-title">All Devices We Repair</h2>
+        <p class="section-subtitle">Click on any device to start your repair request — all brands supported</p>
+        <div class="services-grid" id="servicesGrid">
+            <!-- Filled by JS but also static fallback -->
+            <div class="service-card clickable" data-device="TV" onclick="selectDevice('TV')">
+                <div class="service-icon">📺</div><h3>TV</h3><p>LED, Smart, OLED, Plasma</p>
+            </div>
+            <div class="service-card clickable" data-device="Woofer" onclick="selectDevice('Woofer')">
+                <div class="service-icon">🔊</div><h3>Woofer</h3><p>Bluetooth & Wired Speakers</p>
+            </div>
+            <div class="service-card clickable" data-device="Washing Machine" onclick="selectDevice('Washing Machine')">
+                <div class="service-icon">🌀</div><h3>Washing Machine</h3><p>Front & Top Loaders</p>
+            </div>
+            <div class="service-card clickable" data-device="Radio" onclick="selectDevice('Radio')">
+                <div class="service-icon">📻</div><h3>Radio</h3><p>Digital & Analog</p>
+            </div>
+            <div class="service-card clickable" data-device="Oven" onclick="selectDevice('Oven')">
+                <div class="service-icon">🔥</div><h3>Oven</h3><p>Electric & Gas Ovens</p>
+            </div>
+            <div class="service-card clickable" data-device="Plotter" onclick="selectDevice('Plotter')">
+                <div class="service-icon">🖨️</div><h3>Plotter</h3><p>Large Format Printers</p>
+            </div>
+            <div class="service-card clickable" data-device="Camera" onclick="selectDevice('Camera')">
+                <div class="service-icon">📷</div><h3>Camera Install</h3><p>CCTV & Security</p>
+            </div>
+            <div class="service-card clickable" data-device="Electric Fence" onclick="selectDevice('Electric Fence')">
+                <div class="service-icon">⚡</div><h3>Electric Fence</h3><p>Install & Repair</p>
+            </div>
+            <div class="service-card clickable" data-device="Fan" onclick="selectDevice('Fan')">
+                <div class="service-icon">💨</div><h3>Fan</h3><p>Ceiling & Standing</p>
+            </div>
+            <div class="service-card clickable" data-device="Air Fryer" onclick="selectDevice('Air Fryer')">
+                <div class="service-icon">🍟</div><h3>Air Fryer</h3><p>All Brands</p>
+            </div>
+            <div class="service-card clickable" data-device="Stage Lights" onclick="selectDevice('Stage Lights')">
+                <div class="service-icon">💡</div><h3>Stage Lights</h3><p>Professional Lighting</p>
+            </div>
+            <div class="service-card clickable" data-device="Microwave" onclick="selectDevice('Microwave')">
+                <div class="service-icon">📡</div><h3>Microwave</h3><p>All Types</p>
+            </div>
+            <div class="service-card clickable" data-device="Amplifier" onclick="selectDevice('Amplifier')">
+                <div class="service-icon">🎛️</div><h3>Amplifier</h3><p>Audio Amplifiers</p>
+            </div>
+            <div class="service-card clickable" data-device="Home Theater" onclick="selectDevice('Home Theater')">
+                <div class="service-icon">🎬</div><h3>Home Theater</h3><p>Complete Systems</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Repair Form -->
+    <section class="section bg-light" id="repairFormSection">
+        <h2 class="section-title">📋 Repair Request Form</h2>
+        <p class="section-subtitle">Selected Device: <strong id="selectedDeviceDisplay">None</strong></p>
+        <div class="form-container">
+            <form id="repairForm">
+                <!-- Hidden field for device -->
+                <input type="hidden" id="deviceInput" value="">
+
+                <div class="form-group">
+                    <label for="name">Your Name *</label>
+                    <input type="text" id="name" required placeholder="Enter your full name">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Your Phone Number *</label>
+                    <input type="tel" id="phone" required placeholder="e.g. 07XX XXX XXX">
+                </div>
+
+                <!-- Brand Selection -->
+                <div class="form-group">
+                    <label for="brandSelect">Select Brand *</label>
+                    <select id="brandSelect" required onchange="checkOtherBrand()">
+                        <option value="">-- First select a device above --</option>
+                    </select>
+                </div>
+
+                <!-- Other Brand Input (hidden by default) -->
+                <div class="form-group" id="otherBrandGroup" style="display:none;">
+                    <label for="otherBrand">Please specify the brand *</label>
+                    <input type="text" id="otherBrand" placeholder="Enter brand name">
+                </div>
+
+                <div class="form-group">
+                    <label for="model">Model Number (Optional)</label>
+                    <input type="text" id="model" placeholder="e.g. UE43RU7100">
+                </div>
+                <div class="form-group">
+                    <label for="problem">Describe the Problem *</label>
+                    <textarea id="problem" required placeholder="Tell us what's wrong with your device... Be as specific as possible."></textarea>
+                </div>
+                <button type="submit" class="btn-submit"><i class="fab fa-whatsapp"></i> Send to WhatsApp</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="section">
+        <h2 class="section-title">🔧 How It Works</h2>
+        <div class="steps-grid">
+            <div class="step-card">
+                <div class="step-number">1</div>
+                <h3>Select Device</h3>
+                <p>Click on the device you need repaired</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">2</div>
+                <h3>Choose Brand</h3>
+                <p>Pick from popular brands or add your own</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">3</div>
+                <h3>Send via WhatsApp</h3>
+                <p>We receive your request instantly</p>
+            </div>
+            <div class="step-card">
+                <div class="step-number">4</div>
+                <h3>Get Fixed!</h3>
+                <p>We arrange pickup or visit you</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-inner">
+            <div class="footer-col">
+                <h3>⚡ Isaac Electronics</h3>
+                <p>Professional electronics repair and sales in Uganda.</p>
+            </div>
+            <div class="footer-col">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="services.html">Repairs</a></li>
+                    <li><a href="shop.html">Shop</a></li>
+                    <li><a href="contact.html">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h3>Contact</h3>
+                <p><i class="fas fa-phone"></i> +256 755 432 091</p>
+                <p><i class="fab fa-whatsapp"></i> <a href="https://wa.me/256755432091" target="_blank">WhatsApp</a></p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Isaac Electronics.</p>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/256755432091?text=Hello%20Isaac%20Electronics" target="_blank" class="floating-whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
